@@ -1,11 +1,13 @@
 
 name: release
 on:
+  workflow_dispatch:
   push:
     tags:
       - "v*.*.*"
+
 env:
-  IMAGE_NAME: "splunk/attack_range"
+  IMAGE_NAME: "ajpc500/attack_range"
 
 jobs:  
   build-and-publish-docker-image:
@@ -21,7 +23,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: splunk/attack_range         
+          images: ajpc500/attack_range         
       
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
