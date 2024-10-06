@@ -17,4 +17,3 @@ jobs:
           type: Github
           repo: 'https://github.com/splunk/attack_range'
           days: 1
-          labels: 'release'
