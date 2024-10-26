@@ -25,7 +25,7 @@ RUN python3.12 -m pip install --upgrade pip
 
 RUN python3.12 -m pip install --upgrade awscli azure-cli
 
-RUN git clone https://github.com/splunk/attack_range.git
+RUN git clone https://github.com/aguidetopurpleteaming/attack_range.git
 
 WORKDIR /attack_range
 
