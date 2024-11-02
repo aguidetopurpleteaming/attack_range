@@ -22,9 +22,9 @@
 - name: Install Atomic Red Team
   win_shell: |
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Internet Explorer\Main" -Name "DisableFirstRunCustomize" -Value 2
-    IEX (IWR https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/install-atomicredteam.ps1)
+    IEX (IWR https://raw.githubusercontent.com/aguidetopurpleteaming/invoke-atomicredteam/master/install-atomicredteam.ps1)
     Install-AtomicRedTeam -Force
-    IEX (IWR 'https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/install-atomicsfolder.ps1' -UseBasicParsing)
+    IEX (IWR 'https://raw.githubusercontent.com/aguidetopurpleteaming/invoke-atomicredteam/master/install-atomicsfolder.ps1' -UseBasicParsing)
     Install-AtomicsFolder -Force -RepoOwner "{{ simulation.atomic_red_team_repo }}" -Branch "{{ simulation.atomic_red_team_branch }}"
   register: install_art
 
@@ -38,7 +38,7 @@
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls, [Net.SecurityProtocolType]::Tls11, [Net.SecurityProtocolType]::Tls12, [Net.SecurityProtocolType]::Ssl3
     [Net.ServicePointManager]::SecurityProtocol = 'Tls, Tls11, Tls12, Ssl3'
     If (-not (Test-Path c:\Tools\PurpleSharp)) { New-Item -Path c:\Tools\ -Name PurpleSharp -ItemType directory }
-    $tag = (Invoke-WebRequest 'https://api.github.com/repos/mvelazc0/PurpleSharp/releases' -UseBasicParsing | ConvertFrom-Json)[0].tag_name
-    $purplesharpDownloadUrl = 'https://github.com/mvelazc0/PurpleSharp/releases/download/' + $tag + '/PurpleSharp_x64.exe'
+    $tag = (Invoke-WebRequest 'https://api.github.com/repos/aguidetopurpleteaming/PurpleSharp/releases' -UseBasicParsing | ConvertFrom-Json)[0].tag_name
+    $purplesharpDownloadUrl = 'https://github.com/aguidetopurpleteaming/PurpleSharp/releases/download/' + $tag + '/PurpleSharp_x64.exe'
     If (-not (Test-Path c:\Tools\PurpleSharp\PurpleSharp.exe)) { Invoke-WebRequest -Uri $purplesharpDownloadUrl -OutFile c:\Tools\PurpleSharp\PurpleSharp.exe }
 

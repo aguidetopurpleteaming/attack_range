@@ -277,7 +277,7 @@ snort_server:
   # Enable Snort Server by setting this to 1.
 
 simulation:
-  atomic_red_team_repo: redcanaryco
+  atomic_red_team_repo: aguidetopurpleteaming
   # Specify the repository owner for Atomic Red Team.
 
   atomic_red_team_branch: master
