@@ -39,6 +39,7 @@ general:
   # Enable/Disable Cisco Secure Endpoint log forwarding to Splunk by setting this to 1 or 0.
   cisco_secure_endpoint_api_id: ""
   cisco_secure_endpoint_api_secret: ""
+  cisco_secure_endpoint_api_host: "api.amp.cisco.com"
   # All these fields are needed to automatically ingest Cisco Secure Endpoint logs into the Splunk Server.
 
   install_contentctl: "0"
@@ -122,34 +123,35 @@ splunk_server:
     - app-for-circleci_011.tgz
     - cisco-secure-endpoint-(formerly-amp-for-endpoints)-cim-add-on_212.tgz
     - cisco-secure-endpoint-(formerly-amp-for-endpoints)_300.tgz
+    - microsoft-defender-advanced-hunting-add-on-for-splunk_141.tgz
     - palo-alto-networks-add-on-for-splunk_813.tgz
     - punchcard---custom-visualization_150.tgz
     - python-for-scientific-computing-(for-linux-64-bit)_421.tgz
     - snort-3-json-alerts_105.tgz
     - snort-alert-for-splunk_111.tgz
-    - splunk-add-on-for-amazon-web-services-(aws)_770.tgz
-    - splunk-add-on-for-crowdstrike-fdr_200.tgz
+    - splunk-add-on-for-amazon-web-services-(aws)_771.tgz
+    - splunk-add-on-for-crowdstrike-fdr_201.tgz
     - splunk-add-on-for-github_300.tgz
     - splunk-add-on-for-google-workspace_281.tgz
-    - splunk-add-on-for-microsoft-cloud-services_540.tgz
+    - splunk-add-on-for-microsoft-cloud-services_541.tgz
     - splunk-add-on-for-microsoft-office-365_452.tgz
     - splunk-add-on-for-microsoft-windows_890.tgz
     - splunk-add-on-for-nginx_330.tgz
     - splunk-add-on-for-okta-identity-cloud_221.tgz
     - splunk-add-on-for-sysmon-for-linux_100.tgz
-    - splunk-add-on-for-sysmon_401.tgz
+    - splunk-add-on-for-sysmon_402.tgz
     - splunk-add-on-for-unix-and-linux_920.tgz
     - splunk-app-for-stream_813.tgz
     - splunk-common-information-model-(cim)_532.tgz
-    - splunk-es-content-update_4410.tgz
+    - splunk-es-content-update_4420.tgz
     - splunk-machine-learning-toolkit_542.tgz
     - splunk-sankey-diagram---custom-visualization_160.tgz
-    - splunk-security-essentials_380.tgz
+    - splunk-security-essentials_381.tgz
     - splunk-timeline---custom-visualization_162.tgz
     - splunk_attack_range_reporting-1.0.9.tar.gz
     - status-indicator---custom-visualization_150.tgz
     - ta-for-zeek_108.tgz
-    - vmware-carbon-black-cloud_222.tgz
+    - vmware-carbon-black-cloud_223.tgz
   # List of Splunk Apps to install on the Splunk Server
 
   byo_splunk: "0"
@@ -243,6 +245,11 @@ linux_servers_default:
   crowdstrike_linux_agent: "falcon-sensor_7.18.0-17106_amd64.deb"
   # Name of the CrowdStrike Windows Agent stored in apps/ folder.
 
+  install_cisco_secure_endpoint: "0"
+  # Install Cisco Secure Endpoint by setting this to 1.
+
+  cisco_secure_endpoint_linux_agent: "amp_Server_ubuntu-20-04-amd64.deb"
+  # Name of the Cisco Secure Endpoint Linux Agent stored in apps/ folder.
 
 kali_server:
   kali_server: "0"
@@ -270,7 +277,7 @@ snort_server:
   # Enable Snort Server by setting this to 1.
 
 simulation:
-  atomic_red_team_repo: redcanaryco
+  atomic_red_team_repo: aguidetopurpleteaming
   # Specify the repository owner for Atomic Red Team.
 
   atomic_red_team_branch: master
