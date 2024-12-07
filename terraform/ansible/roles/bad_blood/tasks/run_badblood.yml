@@ -2,7 +2,9 @@
 
 - name: Run BadBlood
   win_shell: C:\BadBlood\Invoke-BadBlood.ps1 -NonInteractive
-  become: yes
-  become_method: runas
-  become_user: ATTACKRANGE.LOCAL\Administrator
-  become_password: "{{ general.attack_range_password }}"
+  vars:
+    ansible_become: true
+    ansible_become_method: runas
+    ansible_become_user: ATTACKRANGE.LOCAL\Administrator
+    ansible_become_password: "{{ general.attack_range_password }}"
+    ansible_become_flags: logon_type=new_credentials logon_flags=netcredentials_only
