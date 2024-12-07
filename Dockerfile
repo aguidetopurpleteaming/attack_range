@@ -10,9 +10,10 @@ RUN apt install -y python3.12
 
 RUN apt-get install -y git unzip python3-pip curl vim 
 
-RUN curl -s https://releases.hashicorp.com/terraform/1.9.6/terraform_1.9.6_linux_amd64.zip -o terraform.zip && \
+RUN curl -s https://releases.hashicorp.com/terraform/1.9.8/terraform_1.9.8_linux_amd64.zip -o terraform.zip && \
          unzip terraform.zip && \
-         mv terraform /usr/local/bin/
+         mv terraform /usr/local/bin/ && \
+	 rm -rf /terraform.zip
 
 RUN echo 'alias python=python3.12' >> ~/.bashrc
 
