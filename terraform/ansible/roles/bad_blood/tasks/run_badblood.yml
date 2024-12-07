@@ -1,7 +1,7 @@
 ---
 
 - name: Run BadBlood
-  win_shell: C:\BadBlood\Invoke-BadBlood.ps1 -NonInteractive
+  win_shell: C:\BadBlood\Invoke-BadBlood.ps1 -NonInteractive -ErrorAction SilentlyContinue
   vars:
     ansible_become: true
     ansible_become_method: runas
