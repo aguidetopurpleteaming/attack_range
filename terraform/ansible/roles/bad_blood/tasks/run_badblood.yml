@@ -2,3 +2,7 @@
 
 - name: Run BadBlood
   win_shell: C:\BadBlood\Invoke-BadBlood.ps1 -NonInteractive
+  become: yes
+  become_method: runas
+  become_user: ATTACKRANGE.LOCAL\Administrator
+  become_password: "{{ general.attack_range_password }}"
